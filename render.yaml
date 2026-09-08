@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: telegram-proxy-check-runner
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: RUNNER_SECRET
+        sync: false
+      - key: CALLBACK_SECRET
+        sync: false
+      - key: WORKER_CALLBACK_URL
+        sync: false
